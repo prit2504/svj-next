@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -20,6 +20,8 @@ export default function ShopHome() {
   const [searchTriggered, setSearchTriggered] = useState(false);
   const [modalProduct, setModalProduct] = useState(null);
   const [showScroll, setShowScroll] = useState(false);
+
+  const productsContainerRef = useRef(null);
 
   const limit = 16;
   const STORAGE_KEY = "shopState";
@@ -127,6 +129,11 @@ export default function ShopHome() {
         setProducts(data.products);
         setPages(data.pages);
         setSearchTriggered(true);
+
+        if (productsContainerRef.current) {
+          productsContainerRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+
       } catch (err) {
         console.error("Error fetching products:", err);
       } finally {
@@ -182,7 +189,9 @@ export default function ShopHome() {
         >
           {categories.map((cat) => (
             <option key={cat} value={cat}>
-              {cat}
+              {
+                (cat == "Gente Kadi" ? "Gents Kadi" : cat)
+              }
             </option>
           ))}
         </select>
@@ -216,8 +225,8 @@ export default function ShopHome() {
               <Link
                 href={`/category/${encodeURIComponent(cat)}`}
                 key={cat}
-                onClick={() => handleCategoryClick(cat)}
-                className="m-2 border w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+                // onClick={() => handleCategoryClick(cat)}
+                className="m-2 border border-red-600 w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
               >
                 <img
                   src={categoryImages[cat]}
@@ -226,7 +235,9 @@ export default function ShopHome() {
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition flex items-center justify-center">
                   <span className="text-white font-semibold text-sm sm:text-base px-2 text-center">
-                    {cat}
+                    {
+                      (cat == "Gente Kadi" ? "Gents Kadi" : cat)
+                    }
                   </span>
                 </div>
               </Link>
@@ -235,7 +246,7 @@ export default function ShopHome() {
       </section>
 
       {/* Products Grid */}
-      <section className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <section ref={productsContainerRef} className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {loading ? (
           <div className="col-span-full flex justify-center py-6">
             <div className="w-12 h-12 border-4 border-[#E3C396] border-dashed rounded-full animate-spin"></div>
@@ -405,7 +416,7 @@ export default function ShopHome() {
               )}
               <button
                 onClick={closeModal}
-                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-600 hover:text-gray-900 text-2xl sm:text-3xl font-bold"
+                className="absolute top-3 right-5 sm:top-4 sm:right-4 text-red-500 hover:text-red-300 text-4xl sm:text-3xl font-bold"
               >
                 &times;
               </button>

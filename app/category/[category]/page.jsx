@@ -91,7 +91,7 @@ export default function CategoryPage() {
       </button>
       {/* Title */}
       <h2 className="text-2xl font-bold text-yellow-700 mb-6 text-center">
-        {decodedCategory || "Category"} Collection
+        { (decodedCategory == "Gente Kadi" ? "Gents Kadi" : decodedCategory) || "Category"} Collection
       </h2>
 
       {/* Products Grid */}
@@ -216,6 +216,7 @@ export default function CategoryPage() {
               src={modalProduct.imageUrl}
               alt={modalProduct.title}
               className="w-full md:w-1/2 h-auto object-cover rounded-lg flex-shrink-0"
+              loading="lazy"
             />
 
             {/* Details */}

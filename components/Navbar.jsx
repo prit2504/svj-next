@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="p-4 bg-white shadow-md sticky top-0 z-50">
+    <nav className=" bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo + Brand */}
@@ -23,8 +23,8 @@ export default function Navbar() {
             <Image
               src="/images/logo.png"
               alt="Shree Vagheswari Jewellers Logo"
-              width={60}
-              height={60}
+              width={40}
+              height={40}
               className="object-contain"
               priority
             />

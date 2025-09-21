@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="mx-4 mt-5 bg-gradient-to-r from-[#fffaf5] to-[#fdf3e7] rounded-2xl p-10 shadow-xl text-center">
+    <section className="border border-red-300 mx-4 mt-5 bg-gradient-to-r from-[#fffaf5] to-[#fdf3e7] rounded-2xl p-10 shadow-xl text-center">
       <div
         className="relative z-10 px-4 animate-fadeIn"
         style={{ animation: "fadeIn 0.7s ease-out" }}

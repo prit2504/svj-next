@@ -13,11 +13,18 @@ export async function GET(req) {
   const limit = parseInt(searchParams.get("limit")) || 16;
 
   const filter = {};
-  if (category !== "All") filter.category = category;
-  if (search) filter.$text = { $search: search };
+  if (category && category !== "All") filter.category = category;
+  // if (search) filter.$text = { $search: search };
+  if (search) {
+      filter.$or = [
+        { title: { $regex: search, $options: "i" } },
+        { description: { $regex: search, $options: "i" } },
+        { category: { $regex: search, $options: "i" } },
+      ];
+    }
 
   const skip = (page - 1) * limit;
-  const products = await Product.find(filter).skip(skip).limit(limit);
+  const products = await Product.find(filter).sort({ createdAt: -1 }).skip(skip).limit(Number(limit));
   const total = await Product.countDocuments(filter);
 
   return Response.json({
