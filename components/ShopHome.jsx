@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import debounce from "lodash/debounce"; // Install lodash for debouncing
+import OfferBanner from "./OfferBanner";
 
 export default function ShopHome() {
   const router = useRouter();
@@ -170,6 +171,8 @@ export default function ShopHome() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
+
+    
       {/* Search + Category */}
       <div className="flex flex-col md:flex-row gap-4 mb-8 items-center justify-center">
         <select
@@ -200,6 +203,7 @@ export default function ShopHome() {
         </button>
       </div>
 
+          <OfferBanner/>
       {/* Categories Section */}
       <section id="categories" className="mb-8">
         <h2 className="text-2xl font-bold text-center text-yellow-700 mb-6">
