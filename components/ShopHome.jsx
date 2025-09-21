@@ -351,7 +351,7 @@ export default function ShopHome() {
           onClick={closeModal}
         >
           <div
-            className="bg-white80 w-full max-w-3xl rounded-xl shadow-xl p-4 sm:p-6 md:p-6 relative flex flex-col md:flex-row gap-4 md:gap-6"
+            className="bg-white/80 w-full max-w-3xl rounded-xl shadow-xl p-4 sm:p-6 md:p-6 relative flex flex-col md:flex-row gap-4 md:gap-6"
             onClick={(e) => e.stopPropagation()}
           >
             <img
@@ -387,7 +387,7 @@ export default function ShopHome() {
               {modalProduct.inStock ? (
                 <a
                   href={`https://wa.me/${process.env.NEXT_PUBLIC_SHOP_WHATSAPP}?text=${encodeURIComponent(
-                    `Hello! I'm interested in this product: ${modalProduct.title}`
+                    `Hello! I'm interested in this product: ${modalProduct.title}. Link : ${window.location.origin}/product/${modalProduct._id}`
                   )}`}
                   target="_blank"
                   className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-center font-semibold transition transform hover:scale-105"

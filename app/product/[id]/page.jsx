@@ -42,37 +42,18 @@ export default function ProductDetailPage() {
     product.mrp && product.price ? Math.round(((product.mrp - product.price) / product.mrp) * 100) : 0;
   const extraDiscountedPrice = product.price ? Math.round(product.price - product.price * 0.1) : null;
 
-  const shopNumber = process.env.NEXT_PUBLIC_SHOP_WHATSAPP;
-  const message = encodeURIComponent(
-    `Hello! I'm interested in this product:\n\n${product.title}\n\nLink: ${window.location.href}`
-  );
-  const whatsappLink = `https://wa.me/${shopNumber}?text=${message}`;
+  // const shopNumber = process.env.NEXT_PUBLIC_SHOP_WHATSAPP;
+  // const message = encodeURIComponent(
+  //   `Hello! I'm interested in this product:\n\n${product.title}\n\nLink: ${window.location.href}`
+  // );
+  // const whatsappLink = `https://wa.me/message/YYDUQB5Y2PCTC1?text=${message}`;
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Navbar */}
-      <nav className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center space-x-3">
-            <img src="/images/logo.png" alt="Logo" className="h-12 w-12 object-contain" />
-            <div className="text-2xl md:text-3xl font-bold text-[#B76E79]">Shree Vagheswari Jewellers</div>
-          </a>
-          <div className="space-x-4 hidden md:flex">
-            <a href="/" className="text-gray-700 hover:text-[#E3C396] font-medium transition">
-              Home
-            </a>
-            <a href="/#categories" className="text-gray-700 hover:text-[#E3C396] font-medium transition">
-              Collections
-            </a>
-            <a href="/#footer" className="text-gray-700 hover:text-[#E3C396] font-medium transition">
-              Contact
-            </a>
-          </div>
-        </div>
-      </nav>
+
 
       {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 py-4 text-gray-600 text-sm flex flex-wrap gap-2 items-center">
+      {/* <div className="max-w-7xl mx-auto px-4 py-4 text-gray-600 text-sm flex flex-wrap gap-2 items-center">
         <a href="/" className="hover:underline">
           Home
         </a>
@@ -87,7 +68,7 @@ export default function ProductDetailPage() {
         >
           ← Back
         </button>
-      </div>
+      </div> */}
 
       {/* Product Detail */}
       <section className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row gap-8">
@@ -121,7 +102,7 @@ export default function ProductDetailPage() {
           ) : (
             <span className="inline-block px-3 py-1 bg-red-100 text-red-600 rounded mb-4">Out of Stock</span>
           )}
-          {product.inStock && (
+          {/* {product.inStock && (
             <a
               href={whatsappLink}
               target="_blank"
@@ -130,11 +111,11 @@ export default function ProductDetailPage() {
             >
               Buy on WhatsApp
             </a>
-          )}
+          )} */}
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

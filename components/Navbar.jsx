@@ -10,7 +10,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const scrollToCategories = () => {
-    router.push("/#categories"); // navigates to home and scrolls to categories
+    // Navigates to home and scrolls to categories
+    router.push("/#categories");
   };
 
   return (
@@ -40,11 +41,12 @@ export default function Navbar() {
             <button
               onClick={scrollToCategories}
               className="hover:text-yellow-600 transition"
+              aria-label="Go to Shop"
             >
               Shop
             </button>
             <Link
-              href="/address"
+              href="/shop-location"
               className="hover:text-yellow-600 transition"
             >
               Address
@@ -54,6 +56,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-green-600 transition"
+              aria-label="Contact via WhatsApp"
             >
               Contact
             </a>
@@ -63,6 +66,7 @@ export default function Navbar() {
           <button
             className="md:hidden flex items-center text-gray-700 text-2xl"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle Menu"
           >
             {menuOpen ? "✕" : "☰"}
           </button>
@@ -83,7 +87,7 @@ export default function Navbar() {
           >
             Shop
           </button>
-          <Link href="/address" onClick={() => setMenuOpen(false)}>
+          <Link href="/shop-location" onClick={() => setMenuOpen(false)}>
             Address
           </Link>
           <a

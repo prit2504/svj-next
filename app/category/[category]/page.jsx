@@ -16,6 +16,7 @@ export default function CategoryPage() {
   const [modalProduct, setModalProduct] = useState(null);
   const [showScroll, setShowScroll] = useState(false);
 
+
   const limit = 16;
 
   // Fetch products when category changes or on initial load
@@ -119,9 +120,8 @@ export default function CategoryPage() {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 rounded-lg"
                 />
                 <span
-                  className={`absolute top-3 left-3 text-xs px-2 py-1 rounded-full shadow ${
-                    product.inStock ? "bg-green-600 text-white" : "bg-red-600 text-white"
-                  }`}
+                  className={`absolute top-3 left-3 text-xs px-2 py-1 rounded-full shadow ${product.inStock ? "bg-green-600 text-white" : "bg-red-600 text-white"
+                    }`}
                 >
                   {product.inStock ? "Available" : "Out of Stock"}
                 </span>
@@ -170,11 +170,10 @@ export default function CategoryPage() {
             <button
               key={i + 1}
               onClick={() => fetchProducts(i + 1)}
-              className={`px-4 py-2 rounded-full ${
-                page === i + 1
-                  ? "bg-yellow-500 text-white shadow-lg"
-                  : "bg-pink-100 text-gray-700 hover:bg-yellow-200"
-              } transition`}
+              className={`px-4 py-2 rounded-full ${page === i + 1
+                ? "bg-yellow-500 text-white shadow-lg"
+                : "bg-pink-100 text-gray-700 hover:bg-yellow-200"
+                } transition`}
               aria-label={`Go to page ${i + 1}`}
             >
               {i + 1}
@@ -247,10 +246,10 @@ export default function CategoryPage() {
               </p>
               {modalProduct.inStock ? (
                 <a
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_SHOP_WHATSAPP}?text=${encodeURIComponent(
-                    `Hello! I'm interested in this product: ${modalProduct.title}`
-                  )}`}
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_SHOP_WHATSAPP}?text=${
+                    `Hello! I'm interested in this product: ${modalProduct.title}. Link: ${window.location.origin}/product/${modalProduct._id}`}`}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-center font-semibold transition transform hover:scale-105"
                 >
                   Buy on WhatsApp
@@ -260,9 +259,10 @@ export default function CategoryPage() {
                   Out of Stock
                 </span>
               )}
+
               <button
                 onClick={closeModal}
-                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-600 hover:text-gray-900 text-2xl sm:text-3xl font-bold"
+                className="absolute top-3 right-5 sm:top-4 sm:right-4 text-red-500 hover:text-red-400 text-4xl sm:text-3xl font-bold"
               >
                 &times;
               </button>
