@@ -5,11 +5,13 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Shree Vagheswari Jewellers",
-  description: "Official website of Shree Vagheswari Jewellers. Explore our latest collections of gold, silver, and diamond jewellery",
+  description: "Official website of Shree Vagheswari Jewellers. Explore our latest collections of gold jewellery",
   icons: {
-    icon: "/favicon1.ico",       // for default tab icon
-    shortcut: "/favicon1.ico",   // for pinned shortcut
-
+    icon: "/favicon1.ico",       
+    shortcut: "/favicon1.ico", 
+  },
+  other: {
+    "google-site-verification": "QBNV41aAYvaagUju2XiEgLUQQGQn3uUGNynxOEy6EcA",
   },
 };
 

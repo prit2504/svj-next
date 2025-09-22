@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import debounce from "lodash/debounce"; // Install lodash for debouncing
 import OfferBanner from "./OfferBanner";
+import { optimizeCloudinaryUrl } from "@/utils/cloudinary";
 
 export default function ShopHome() {
   const router = useRouter();
@@ -37,6 +38,7 @@ export default function ShopHome() {
     }, 100),
     []
   );
+
 
   // Scroll event listener
   useEffect(() => {
@@ -179,7 +181,7 @@ export default function ShopHome() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
 
-    
+
       {/* Search + Category */}
       <div className="flex flex-col md:flex-row gap-4 mb-8 items-center justify-center">
         <select
@@ -212,7 +214,7 @@ export default function ShopHome() {
         </button>
       </div>
 
-          <OfferBanner/>
+      <OfferBanner />
       {/* Categories Section */}
       <section id="categories" className="mb-8">
         <h2 className="text-2xl font-bold text-center text-yellow-700 mb-6">
@@ -229,10 +231,11 @@ export default function ShopHome() {
                 className="m-2 border border-red-600 w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
               >
                 <img
-                  src={categoryImages[cat]}
+                  src={optimizeCloudinaryUrl(categoryImages[cat], 200, 200)}
                   alt={cat}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
                 />
+
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition flex items-center justify-center">
                   <span className="text-white font-semibold text-sm sm:text-base px-2 text-center">
                     {
@@ -262,15 +265,15 @@ export default function ShopHome() {
             >
               <div className="relative overflow-hidden w-full aspect-square">
                 <img
-                  src={product.imageUrl}
+                  src={optimizeCloudinaryUrl(product.imageUrl, 400, 400)}
                   alt={product.title}
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 rounded-lg"
                 />
+
                 <span
-                  className={`absolute top-3 left-3 text-xs px-2 py-1 rounded-full shadow ${
-                    product.inStock ? "bg-green-600 text-white" : "bg-red-600 text-white"
-                  }`}
+                  className={`absolute top-3 left-3 text-xs px-2 py-1 rounded-full shadow ${product.inStock ? "bg-green-600 text-white" : "bg-red-600 text-white"
+                    }`}
                 >
                   {product.inStock ? "Available" : "Out of Stock"}
                 </span>
@@ -321,11 +324,10 @@ export default function ShopHome() {
             <button
               key={i + 1}
               onClick={() => fetchProducts(false, i + 1)}
-              className={`px-4 py-2 rounded-full ${
-                page === i + 1
-                  ? "bg-yellow-500 text-white shadow-lg"
-                  : "bg-pink-100 text-gray-700 hover:bg-yellow-200"
-              } transition`}
+              className={`px-4 py-2 rounded-full ${page === i + 1
+                ? "bg-yellow-500 text-white shadow-lg"
+                : "bg-pink-100 text-gray-700 hover:bg-yellow-200"
+                } transition`}
             >
               {i + 1}
             </button>
@@ -374,6 +376,7 @@ export default function ShopHome() {
               alt={modalProduct.title}
               className="w-full md:w-1/2 h-auto object-cover rounded-lg flex-shrink-0"
             />
+
             <div className="flex-1 flex flex-col">
               <h2 className="text-2xl sm:text-3xl font-bold mb-2 line-clamp-2">
                 {modalProduct.title}
