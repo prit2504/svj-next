@@ -312,7 +312,7 @@ const handleSearchKeyPress = (e) => {
         </button>
       </div>
 
-      <OfferBanner />
+      {/* <OfferBanner /> */}
 
       {/* Categories Section */}
       <section id="categories" className="mb-8">
@@ -408,16 +408,16 @@ const handleSearchKeyPress = (e) => {
             )}
             <div className="footer border-t border-gray-200 pt-3 mt-2 text-sm space-y-1">
               <div className="text-gray-500 line-through">MRP : ₹{product.mrp || "---"}</div>
-              <div className="text-gray-800 font-medium">
+              <div className="text-green-700 font-bold md:text-xl">
                 Price : ₹{product.price || "---"}{" "}
                 <span className="text-green-600 font-semibold">
                   ({product.mrp && product.price ? Math.round(((product.mrp - product.price) / product.mrp) * 100) : 0}% OFF)
                 </span>
               </div>
-              <div className="text-yellow-600 font-medium">Extra 10% OFF applied</div>
+              {/* <div className="text-yellow-600 font-medium">Extra 10% OFF applied</div>
               <div className="text-green-700 font-bold">
                 Final Price : ₹{product.price ? Math.round(product.price * 0.9) : "---"}
-              </div>
+              </div> */}
               <div
                 className="mt-3 bg-[#B76E79] text-white px-4 py-1.5 rounded-md shadow hover:opacity-90 transition text-center cursor-pointer"
                 onClick={() => openModal(product)}
@@ -489,19 +489,19 @@ const handleSearchKeyPress = (e) => {
               alt={modalProduct.title}
               className="w-full md:w-1/2 h-auto object-cover rounded-lg flex-shrink-0"
             />
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col gap-5">
               <h2 className="text-2xl sm:text-3xl font-bold mb-2 line-clamp-2">{modalProduct.title}</h2>
               {modalProduct.description && <p className="text-gray-700 mb-2 text-sm sm:text-base line-clamp-4">{modalProduct.description}</p>}
               <p className="line-through text-gray-500 text-sm sm:text-base">MRP: ₹{modalProduct.mrp || "---"}</p>
-              <p className="text-gray-800 font-semibold text-sm sm:text-base">
+              <p className="text-green-800 font-bold text-sm sm:text-xl">
                 Price: ₹{modalProduct.price || "---"} (
                 {modalProduct.mrp && modalProduct.price
                   ? Math.round(((modalProduct.mrp - modalProduct.price) / modalProduct.mrp) * 100)
                   : 0}
                 % OFF)
               </p>
-              <p className="text-yellow-600 font-medium text-sm sm:text-base mb-2">Extra 10% OFF applied</p>
-              <p className="text-green-700 font-bold text-base sm:text-lg mb-4">Final Price: ₹{modalProduct.price ? Math.round(modalProduct.price * 0.9) : "---"}</p>
+              {/* <p className="text-yellow-600 font-medium text-sm sm:text-base mb-2">Extra 10% OFF applied</p>
+              <p className="text-green-700 font-bold text-base sm:text-lg mb-4">Final Price: ₹{modalProduct.price ? Math.round(modalProduct.price * 0.9) : "---"}</p> */}
               {modalProduct.inStock ? (
                 <a
                   href={`https://wa.me/${process.env.NEXT_PUBLIC_SHOP_WHATSAPP}?text=${encodeURIComponent(

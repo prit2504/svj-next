@@ -143,7 +143,7 @@ export default function NewArrivals() {
                               <div className="text-gray-500 line-through">
                                 MRP : ₹{product.mrp || "---"}
                               </div>
-                              <div className="text-gray-800 font-medium">
+                              <div className="text-green-700 font-bold sm:text-xl">
                                 Price : ₹{product.price || "---"}{" "}
                                 <span className="text-green-600 font-semibold">
                                   (
@@ -157,7 +157,7 @@ export default function NewArrivals() {
                                   % OFF)
                                 </span>
                               </div>
-                              <div className="text-yellow-600 font-medium">
+                              {/* <div className="text-yellow-600 font-medium">
                                 Extra 10% OFF applied
                               </div>
                               <div className="text-green-700 font-bold">
@@ -165,7 +165,7 @@ export default function NewArrivals() {
                                 {product.price
                                   ? Math.round(product.price - product.price * 0.1)
                                   : "---"}
-                              </div>
+                              </div> */}
                               <div
                                 className="mt-3 bg-[#B76E79] text-white px-4 py-1.5 rounded-md shadow hover:opacity-90 transition text-center cursor-pointer"
                                 onClick={() => openModal(product)}
@@ -214,7 +214,7 @@ export default function NewArrivals() {
               alt={modalProduct.title}
               className="w-full md:w-1/2 h-auto object-cover rounded-lg flex-shrink-0"
             />
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col gap-5">
               <h2 className="text-2xl sm:text-3xl font-bold mb-2 line-clamp-2">
                 {modalProduct.title}
               </h2>
@@ -226,7 +226,7 @@ export default function NewArrivals() {
               <p className="line-through text-gray-500 text-sm sm:text-base">
                 MRP: ₹{modalProduct.mrp || "---"}
               </p>
-              <p className="text-gray-800 font-semibold text-sm sm:text-base">
+              <p className="text-green-700 font-bold text-sm sm:text-xl">
                 Price: ₹{modalProduct.price || "---"} (
                 {modalProduct.mrp && modalProduct.price
                   ? Math.round(
@@ -237,7 +237,7 @@ export default function NewArrivals() {
                   : 0}
                 % OFF)
               </p>
-              <p className="text-yellow-600 font-medium text-sm sm:text-base mb-2">
+              {/* <p className="text-yellow-600 font-medium text-sm sm:text-base mb-2">
                 Extra 10% OFF applied
               </p>
               <p className="text-green-700 font-bold text-base sm:text-lg mb-4">
@@ -245,7 +245,7 @@ export default function NewArrivals() {
                 {modalProduct.price
                   ? Math.round(modalProduct.price * 0.9)
                   : "---"}
-              </p>
+              </p> */}
               {modalProduct.inStock ? (
                 <a
                   href={`https://wa.me/${

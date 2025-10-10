@@ -91,11 +91,11 @@ export default function ProductDetailPage() {
         <div className="flex-1 flex flex-col justify-start">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">{product.title}</h1>
           <p className="text-gray-600 mb-2 line-through">MRP : ₹{product.mrp || "---"}</p>
-          <p className="text-gray-800 font-semibold mb-2">
+          <p className="text-green-700 font-bold mb-2 sm:text-xl">
             Price : ₹{product.price || "---"} <span className="text-green-600">({baseDiscount}% OFF)</span>
           </p>
-          <p className="text-yellow-600 font-medium mb-2">Extra 10% OFF applied</p>
-          <p className="text-green-700 font-bold text-lg mb-4">Final Price : ₹{extraDiscountedPrice || "---"}</p>
+          {/* <p className="text-yellow-600 font-medium mb-2">Extra 10% OFF applied</p>
+          <p className="text-green-700 font-bold text-lg mb-4">Final Price : ₹{extraDiscountedPrice || "---"}</p> */}
           {product.description && <p className="text-gray-700 mb-4">{product.description}</p>}
           {product.inStock ? (
             <span className="inline-block px-3 py-1 bg-green-100 text-green-600 rounded mb-4">In Stock</span>

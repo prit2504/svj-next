@@ -29,9 +29,7 @@ export default function HomePage() {
 
       <Hero />
       <ShopHome />
-      {/* <CategoryGrid /> */}
-      {/* <ProductGrid /> */}
-      {/* <Pagination /> */}
+
 
     </div>
   );
